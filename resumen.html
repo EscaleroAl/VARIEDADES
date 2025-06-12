@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Resumen de compra - VARIEDADES FALBAS</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <header>
+    <h1 style="color: #ff9800;">VARIEDADES FALBAS</h1>
+    <img src="https://www.creativefabrica.com/wp-content/uploads/2020/09/07/Monogram-VF-Logo-V2-Graphics-5315503-1.jpg" alt="Logo VF" style="height: 60px;" />
+  </header>
+
+  <nav>
+    <a href="index.html#inicio">Inicio</a>
+    <a href="index.html#galeria">Galería</a>
+    <a href="productos.html" style="font-weight: bold; color: #ff9800;">Productos</a>
+    <a href="index.html#contacto">Contacto</a>
+  </nav>
+
+  <main style="padding: 20px;">
+    <h2>Resumen de tu compra</h2>
+    <ul id="lista-carrito"></ul>
+    <p>Total: $<span id="total">0.00</span></p>
+    <button id="btn-comprar" disabled>Enviar pedido por WhatsApp</button>
+  </main>
+
+  <script>
+    // Recuperar carrito del localStorage
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+    const listaCarrito = document.getElementById('lista-carrito');
+    const totalSpan = document.getElementById('total');
+    const btnComprar = document.getElementById('btn-comprar');
+
+    function actualizarCarrito() {
+      listaCarrito.innerHTML = '';
+      let total = 0;
+      carrito.forEach((item, index) => {
+        const li = document.createElement('li');
+        li.textContent = `${item.nombre} x${item.cantidad} - $${(item.precio * item.cantidad).toFixed(2)}`;
+        listaCarrito.appendChild(li);
+        total += item.precio * item.cantidad;
+      });
+      totalSpan.textContent = total.toFixed(2);
+      btnComprar.disabled = carrito.length === 0;
+    }
+
+    btnComprar.addEventListener('click', () => {
+      if (carrito.length === 0) return;
+      let mensaje = "¡Hola! Me interesa realizar una compra en *VARIEDADES FALBAS*:%0A%0A";
+      carrito.forEach(item => {
+        mensaje += `• ${item.nombre} x${item.cantidad} = $${(item.precio * item.cantidad).toFixed(2)}%0A`;
+      });
+      mensaje += `%0A🧾 Total a pagar: *$${totalSpan.textContent}*%0A%0A¿Está disponible para envío o retiro?`;
+
+      const numero = '593982183115'; // Pon aquí tu número WhatsApp real
+      window.open(`https://wa.me/${numero}?text=${mensaje}`, '_blank');
+    });
+
+    actualizarCarrito();
+  </script>
+</body>
+</html>
