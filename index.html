@@ -1,6 +1,3 @@
----
----
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,8 +14,10 @@
     gtag('config', 'G-V6M71XY2F6');
   </script>
 
+  <!-- Ruta corregida para favicon -->
+  <link rel="icon" href="./imagenes/58829_store_tienda_icon.png" type="image/png">
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="imagenes/58829_store_tienda_icon.png" type="image/png">
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -121,11 +120,11 @@
     <section id="galeria">
       <h2>Galería</h2>
       <div class="grid-galeria">
-        <img src="imagenes/1.jpeg" alt="Imagen 1" class="galeria-img" onclick="ampliarImagen(this.src)">
-        <img src="imagenes/2.jpeg" alt="Imagen 2" class="galeria-img" onclick="ampliarImagen(this.src)">
-        <img src="imagenes/3.jpeg" alt="Imagen 3" class="galeria-img" onclick="ampliarImagen(this.src)">
-        <img src="imagenes/4.jpeg" alt="Imagen 4" class="galeria-img" onclick="ampliarImagen(this.src)">
-        <img src="imagenes/5.jpeg" alt="Imagen 5" class="galeria-img" onclick="ampliarImagen(this.src)">
+        <img src="./imagenes/1.jpeg" alt="Imagen 1" class="galeria-img" onclick="ampliarImagen(this.src)">
+        <img src="./imagenes/2.jpeg" alt="Imagen 2" class="galeria-img" onclick="ampliarImagen(this.src)">
+        <img src="./imagenes/3.jpeg" alt="Imagen 3" class="galeria-img" onclick="ampliarImagen(this.src)">
+        <img src="./imagenes/4.jpeg" alt="Imagen 4" class="galeria-img" onclick="ampliarImagen(this.src)">
+        <img src="./imagenes/5.jpeg" alt="Imagen 5" class="galeria-img" onclick="ampliarImagen(this.src)">
       </div>
     </section>
 
@@ -138,14 +137,14 @@
       <h2>Productos</h2>
       <div class="productos-grid">
         <div class="producto-card" data-id="1" data-nombre="Perfume" data-precio="10.00">
-          <img src="imagenes/5.jpeg" alt="Perfume">
+          <img src="./imagenes/5.jpeg" alt="Perfume">
           <h3>Perfume</h3>
           <p>Este perfume despierta tu fragancia.</p>
           <p class="precio">$10.00</p>
           <button onclick="agregarAlCarrito(this)">Agregar</button>
         </div>
         <div class="producto-card" data-id="2" data-nombre="Billetera" data-precio="4.00">
-          <img src="imagenes/7.jpeg" alt="Billetera">
+          <img src="./imagenes/7.jpeg" alt="Billetera">
           <h3>Billetera infantil</h3>
           <p>Ideal para guardar tus pertenencias.</p>
           <p class="precio">$4.00</p>
@@ -226,3 +225,4 @@
   </script>
 </body>
 </html>
+
