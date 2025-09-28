@@ -1,385 +1,230 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>VARIEDADES FALBAS</title>
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V6M71XY2F6"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-V6M71XY2F6');
-  </script>
-
-  <link rel="icon" href="./imagenes/58829_store_tienda_icon.png" type="image/png" />
-  <link rel="stylesheet" href="style.css" />
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      background-color: #ff9800;
-    }
-
-    header img.logo {
-      height: 60px;
-    }
-
-    nav {
-      background-color: #ff9800;
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      font-size: 16px;
-    }
-
-    nav a:hover {
-      color: #333;
-      background-color: white;
-      padding: 5px;
-      border-radius: 5px;
-    }
-
-    .carrito-icon {
-      font-size: 22px;
-      color: white;
-      display: flex;
-      align-items: center;
-    }
-    .carrito-icon:hover {
-      color: #333;
-      background-color: white;
-      padding: 5px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    button, .galeria-img {
-      transition: all 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #ffc107;
-      transform: scale(1.05);
-      cursor: pointer;
-    }
-
-    .galeria-img:hover {
-      transform: scale(1.03);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    .producto-card, .producto {
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 10px;
-      background-color: white;
-      margin: 10px;
-      width: 200px;
-      text-align: center;
-    }
-
-    .productos-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .grid-galeria {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 10px;
-      padding: 20px;
-    }
-
-    #modal {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.8);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-
-    #modal img {
-      max-width: 90%;
-      max-height: 90%;
-      animation: zoomIn 0.5s ease;
-    }
-
-    #modal .cerrar {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      font-size: 2rem;
-      color: white;
-      cursor: pointer;
-    }
-
-    @keyframes zoomIn {
-      from {
-        transform: scale(0.6);
-        opacity: 0;
-      }
-      to {
-        transform: scale(1);
-        opacity: 1;
-      }
-    }
-
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeIn 1s ease forwards;
-    }
-
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body { font-family: 'Arial', sans-serif; background:#f8f8f8; color:#333; }
+    header { display:flex; justify-content:space-between; align-items:center; padding:15px 30px; background:#ff9800; }
+    header h1 { color:white; font-size:1.8rem; }
+    header img { height:60px; }
+    nav { display:flex; justify-content:center; gap:20px; background:#ff9800; padding:10px 0; flex-wrap: wrap; }
+    nav a { color:white; font-weight:bold; text-decoration:none; padding:8px 12px; border-radius:5px; transition:0.3s; }
+    nav a:hover, nav a.active { background:white; color:#ff9800; }
+    main { padding:20px; max-width:1200px; margin:0 auto; }
+    section { margin-bottom:50px; }
+    .section-title { text-align:center; margin-bottom:25px; font-size:1.8rem; color:#ff9800; }
+    .productos-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; }
+    .producto-card { background:white; border-radius:10px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1); transition:0.3s; text-align:center; }
+    .producto-card:hover { transform:scale(1.03); }
+    .producto-card img { width:100%; height:200px; object-fit:cover; cursor:pointer; }
+    .producto-card h3 { margin:10px 0; font-size:1.1rem; }
+    .producto-card p { margin:5px 0; font-size:0.95rem; }
+    .producto-card .precio { font-weight:bold; color:#ff9800; font-size:1rem; margin-bottom:10px; }
+    .producto-card button { margin-bottom:10px; background:#ff9800; color:white; border:none; padding:8px 15px; border-radius:5px; cursor:pointer; transition:0.3s; }
+    .producto-card button:hover { background:#ffc107; }
+    .fade-in { opacity:0; transform:translateY(20px); animation:fadeIn 1s ease forwards; }
+    @keyframes fadeIn { to { opacity:1; transform:translateY(0); } }
+    #modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:1000; }
+    #modal img { max-width:90%; max-height:90%; animation:zoomIn 0.5s ease; }
+    #modal .cerrar { position:absolute; top:20px; right:30px; font-size:2rem; color:white; cursor:pointer; }
+    @keyframes zoomIn { from {transform:scale(0.6); opacity:0;} to {transform:scale(1); opacity:1;} }
+    #carrito { background:white; padding:20px; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+    #lista-carrito li { margin-bottom:8px; display:flex; justify-content:space-between; align-items:center; }
+    #lista-carrito button { background:transparent; border:none; color:red; font-weight:bold; cursor:pointer; }
+    footer { text-align:center; padding:20px; background:white; border-top:1px solid #ddd; margin-top:40px; }
+    #buscador { display:block; margin:20px auto; padding:8px; width:80%; max-width:400px; border-radius:5px; border:1px solid #ddd; }
+    #selector-idioma { position:absolute; right:30px; top:15px; padding:5px 10px; border-radius:5px; border:none; font-weight:bold; }
   </style>
 </head>
 <body>
-  <header>
-    <h1 style="color: white;">VARIEDADES FALBAS</h1>
-    <img src="https://www.creativefabrica.com/wp-content/uploads/2020/09/07/Monogram-VF-Logo-V2-Graphics-5315503-1.jpg" alt="Logo VF" class="logo" />
-  </header>
 
-  <nav>
-    <a href="#inicio">Inicio</a>
-    <a href="#galeria">Galería</a>
-    <a href="productos.html">Productos</a>
-    <a href="#contáctanos">Contáctanos</a>
-    <a href="#carrito" style="display:flex; align-items:center; gap:5px; color:white; font-weight:bold; text-decoration:none;">
-      <i class="fas fa-shopping-cart"></i> Carrito
-    </a>
-  </nav>
+<header>
+  <h1>VARIEDADES FALBAS</h1>
+  <img src="./imagenes/images.png" alt="Logo VF">
+  <select id="selector-idioma">
+    <option value="es" selected>ES</option>
+    <option value="en">EN</option>
+  </select>
+</header>
 
-  <main>
-    <section id="inicio" class="fade-in">
-      <h2>Inicio</h2>
-      <p>Bienvenido a VARIEDADES FALBAS. Conoce todos los productos que tenemos para ti.</p>
-    </section>
+<nav>
+  <a href="#inicio" class="active">Inicio</a>
+  <a href="#productos">Productos</a>
+  <a href="#carrito">Carrito</a>
+</nav>
 
-    <section id="galeria" class="fade-in">
-      <h2>Galería</h2>
-      <div class="grid-galeria">
-        <img src="./imagenes/1.jpeg" alt="Imagen 1" class="galeria-img" onclick="ampliarImagen(this.src)" />
-        <img src="./imagenes/2.jpeg" alt="Imagen 2" class="galeria-img" onclick="ampliarImagen(this.src)" />
-        <img src="./imagenes/3.jpeg" alt="Imagen 3" class="galeria-img" onclick="ampliarImagen(this.src)" />
-        <img src="./imagenes/4.jpeg" alt="Imagen 4" class="galeria-img" onclick="ampliarImagen(this.src)" />
-        <img src="./imagenes/5.jpeg" alt="Imagen 5" class="galeria-img" onclick="ampliarImagen(this.src)" />
-      </div>
-    </section>
+<main>
+  <section id="inicio" class="fade-in">
+    <h2 class="section-title" id="titulo-inicio">Bienvenido a VARIEDADES FALBAS</h2>
+    <p style="text-align:center;" id="descripcion-inicio">Descubre todos nuestros productos de calidad y agrégalos fácilmente a tu carrito para comprar por WhatsApp.</p>
+  </section>
 
-    <div id="modal" onclick="cerrarModal()">
-      <span class="cerrar">✖</span>
-      <img id="img-ampliada" />
-    </div>
+  <!-- Productos -->
+  <section id="productos" class="fade-in">
+    <h2 class="section-title" id="titulo-productos">Productos</h2>
+    <input type="text" id="buscador" placeholder="Buscar producto..." onkeyup="filtrarProductos()">
+    <div id="galeria-grid" class="productos-grid"></div>
+  </section>
 
-    <section id="productos" class="fade-in">
-      <h2>Productos</h2>
-      <input type="text" id="buscador" placeholder="Buscar producto..." onkeyup="filtrarProductos()" style="margin: 20px auto; display: block; padding: 8px; width: 80%; max-width: 400px;" />
-
-      <div class="productos-grid">
-        <div class="producto-card" data-id="1" data-nombre="Perfume" data-precio="10.00">
-          <img src="./imagenes/5.jpeg" alt="Perfume" />
-          <h3>Perfume</h3>
-          <p>Este perfume despierta tu fragancia.</p>
-          <p class="precio">$10.00</p>
-          <button onclick="agregarAlCarrito(this)">Agregar</button>
-        </div>
-        <div class="producto-card" data-id="2" data-nombre="Billetera" data-precio="4.00">
-          <img src="./imagenes/7.jpeg" alt="Billetera" />
-          <h3>Billetera infantil</h3>
-          <p>Ideal para guardar tus pertenencias.</p>
-          <p class="precio">$4.00</p>
-          <button onclick="agregarAlCarrito(this)">Agregar</button>
-          
-        </div>
-      </div>
-    </section>
-    
-    <section class="proximamente" style="text-align: center; padding: 2rem; background: linear-gradient(135deg, #ffe259, #ffa751); border-radius: 1rem; margin-top: 2rem;">
-  <h2 style="font-size: 2rem; color: #333;">🎉 ¡Más productos disponibles próximamente! 🎉</h2>
-  <p style="font-size: 1.2rem; color: #555;">Estamos preparando nuevas sorpresas para ti... 👀<br>¡Mantente atento y no te lo pierdas!</p>
-</section>
-
-    <section id="carrito" class="fade-in">
-      <h2>Tu carrito</h2>
-      <ul id="lista-carrito"></ul>
-      <p>Total: $<span id="total">0.00</span></p>
-      <button id="btn-comprar" disabled>Comprar por WhatsApp</button>
-    </section>
-    <section id="contacto" class="fade-in" style="padding: 20px; max-width: 800px; margin: 40px auto; background: #fff; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
-  <h2 style="text-align: center; color: #ff9800;">Contáctanos</h2>
-  
-  <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
-
-    <!-- Datos personales y redes -->
-    <div style="flex: 1 1 280px; min-width: 280px;">
-      <h3>Información</h3>
-      <p><strong>Nombre:</strong> Mercedes Sangucho</p>
-      <p><strong>Teléfono:</strong> <a href="tel:+593985830394" style="color:#ff9800;">+593 98 218 3115</a></p>
-      <p><strong>Email:</strong> <a href="alejoalsangucho@gmail.com" style="color:#ff9800;">alejoalsangucho@gmail.com</a></p>
-      <p><strong>Dirección:</strong> Av. 1ero de Mayo,frente a la cancha de voley del barrio el progreso,Archidona, Ecuador</p>
-
-      <h3>Síguenos</h3>
-      <p style="font-size: 24px; margin-top: 10px;">
-        <a href="https://www.facebook.com/alejandro.alvarado.697162/" target="_blank" rel="noopener" style="color:#3b5998; margin-right: 15px;">
-          <i class="fab fa-facebook-square"></i>
-        </a>
-        <a href="https://www.instagram.com/alejo.aaas24/" target="_blank" rel="noopener" style="color:#e1306c; margin-right: 15px;">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://wa.me/593982183115" target="_blank" rel="noopener" style="color:#25d366;">
-          <i class="fab fa-whatsapp"></i>
-        </a>
-      </p>
-    </div>
-
-    <!-- Formulario de contacto -->
-    <div style="flex: 1 1 380px; min-width: 280px;">
-      <h3>Envíanos un mensaje</h3>
-      <form id="form-contacto"action="https://formspree.io/f/manjoaqj" method="POST"> 
-        <label for="nombre">Nombre:</label><br />
-        <input type="text" id="nombre" name="nombre" required style="width: 100%; padding: 8px; margin-bottom: 10px;" />
-
-        <label for="email">Email:</label><br />
-        <input type="email" id="email" name="email" required style="width: 100%; padding: 8px; margin-bottom: 10px;" />
-
-        <label for="mensaje">Mensaje:</label><br />
-        <textarea id="mensaje" name="mensaje" rows="5" required style="width: 100%; padding: 8px; margin-bottom: 10px;"></textarea>
-
-        <button type="submit" style="background-color: #ff9800; color: white; border: none; padding: 10px 20px; cursor: pointer;">Enviar</button>
-      </form>
-      <p id="respuesta" style="margin-top: 10px; color: green;"></p>
-    </div>
-
+  <!-- Modal -->
+  <div id="modal" onclick="cerrarModal()">
+    <span class="cerrar">✖</span>
+    <img id="img-ampliada">
   </div>
-</section>
+
+  <!-- Carrito -->
+  <section id="carrito" class="fade-in">
+    <h2 class="section-title" id="titulo-carrito">Tu Carrito</h2>
+    <ul id="lista-carrito"></ul>
+    <p>Total: $<span id="total">0.00</span></p>
+    <button id="btn-comprar" disabled id="btn-comprar">Comprar por WhatsApp</button>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 VARIEDADES FALBAS</p>
+</footer>
 
 <script>
-  const formContacto = document.getElementById('form-contacto');
-  const respuesta = document.getElementById('respuesta');
+  // Productos
+  const productos = [
+    {id:1,nombre:"Perfume",precio:5.00,imagen:"./imagenes/5.jpeg"},
+    {id:2,nombre:"Billetera infantil",precio:4.00,imagen:"./imagenes/7.jpeg"},
+    {id:3,nombre:"Glip Gloss",precio:0.75,imagen:"./imagenes/8.jpeg"},
+    {id:4,nombre:"Loción pequeña",precio:1.00,imagen:"./imagenes/9.jpeg"},
+    {id:5,nombre:"Sombra",precio:1.00,imagen:"./imagenes/10.jpeg"},
+    {id:6,nombre:"Perfume",precio:1.00,imagen:"./imagenes/11.jpeg"},
+    {id:7,nombre:"Lápiz labial",precio:1.00,imagen:"./imagenes/12.jpeg"},
+    {id:8,nombre:"Lápiz labial",precio:1.00,imagen:"./imagenes/14.jpeg"},
+    {id:9,nombre:"Labial para niña",precio:1.00,imagen:"./imagenes/15.jpeg"},
+    {id:10,nombre:"Base",precio:1.00,imagen:"./imagenes/16.jpeg"},
+    {id:11,nombre:"Labial para mujeres",precio:1.00,imagen:"./imagenes/17.jpeg"},
+    {id:12,nombre:"Labial para niña",precio:1.00,imagen:"./imagenes/18.jpeg"},
+    {id:13,nombre:"Perfume Punk Robot",precio:5.00,imagen:"./imagenes/19.jpeg"},
+    {id:14,nombre:"Loción hidratante corporal",precio:8.00,imagen:"./imagenes/20.jpeg"},
+    {id:15,nombre:"Loción hidratante corporal",precio:8.00,imagen:"./imagenes/21.jpeg"},
+    {id:16,nombre:"Velas luminosas",precio:1.00,imagen:"./imagenes/37.jpeg"},
+    {id:17,nombre:"Velas luminosas",precio:1.00,imagen:"./imagenes/38.jpeg"},
+    {id:18,nombre:"Diadema",precio:1.00,imagen:"./imagenes/39.jpeg"},
+    {id:19,nombre:"Moños pequeños",precio:0.50,imagen:"./imagenes/40.jpeg"},
+    {id:20,nombre:"Moños pequeños",precio:0.50,imagen:"./imagenes/41.jpeg"},
+    {id:21,nombre:"Peluche unicornio",precio:4.00,imagen:"./imagenes/61.jpeg"},
+    {id:22,nombre:"Peluche capibara",precio:4.00,imagen:"./imagenes/62.jpeg"},
+    {id:23,nombre:"Peluche Lotso",precio:4.00,imagen:"./imagenes/63.jpeg"},
+    {id:24,nombre:"Ropa interior talla L",precio:1.00,imagen:"./imagenes/64.jpeg"},
+    {id:25,nombre:"Peluche capibara",precio:4.00,imagen:"./imagenes/65.jpeg"},
+    {id:26,nombre:"Ropa interior talla S",precio:1.00,imagen:"./imagenes/66.jpeg"},
+    {id:27,nombre:"Pantaloneta Jean talla 28",precio:14.00,imagen:"./imagenes/67.jpeg"},
+    {id:28,nombre:"Pantaloneta Jean talla 28",precio:14.00,imagen:"./imagenes/68.jpeg"},
+    {id:29,nombre:"Pantaloneta Jean talla 28",precio:14.00,imagen:"./imagenes/69.jpeg"},
+    {id:30,nombre:"Pantaloneta Jean talla 28",precio:14.00,imagen:"./imagenes/70.jpeg"}
+  
+  ]
 
-  formContacto.addEventListener('submit', function(event) {
-    event.preventDefault();
-    respuesta.textContent = 'Gracias por contactarnos. Te responderemos pronto.';
-    formContacto.reset();
+  const galeriaGrid = document.getElementById('galeria-grid');
+  const carrito = [];
+  const listaCarrito = document.getElementById('lista-carrito');
+  const totalSpan = document.getElementById('total');
+  const btnComprar = document.getElementById('btn-comprar');
+
+  // Generar productos
+  productos.forEach(p => {
+    const div = document.createElement('div');
+    div.className = 'producto-card';
+    div.dataset.id = p.id;
+    div.dataset.nombre = p.nombre;
+    div.dataset.precio = p.precio;
+    div.innerHTML = `
+      <img src="${p.imagen}" alt="${p.nombre}" onclick="ampliarImagen(this.src)">
+      <h3>${p.nombre}</h3>
+      <p class="precio">$${p.precio.toFixed(2)}</p>
+      <button onclick="agregarAlCarrito(this)">Agregar</button>
+    `;
+    galeriaGrid.appendChild(div);
+  });
+
+  // Filtrar productos
+  function filtrarProductos() {
+    const filtro = document.getElementById('buscador').value.toLowerCase();
+    document.querySelectorAll('.producto-card').forEach(p => {
+      const nombre = p.dataset.nombre.toLowerCase();
+      p.style.display = nombre.includes(filtro) ? '' : 'none';
+    });
+  }
+
+  // Carrito
+  function agregarAlCarrito(boton){
+    const card=boton.closest('.producto-card');
+    const id=card.dataset.id;
+    const nombre=card.dataset.nombre;
+    const precio=parseFloat(card.dataset.precio);
+    const existente=carrito.find(p=>p.id===id);
+    if(existente){ existente.cantidad++; } 
+    else { carrito.push({id,nombre,precio,cantidad:1}); }
+    actualizarCarrito();
+  }
+  function eliminarProducto(index){
+    carrito.splice(index,1);
+    actualizarCarrito();
+  }
+  function actualizarCarrito(){
+    listaCarrito.innerHTML='';
+    let total=0;
+    carrito.forEach((item,index)=>{
+      const li=document.createElement('li');
+      li.textContent=`${item.nombre} x${item.cantidad} - $${(item.precio*item.cantidad).toFixed(2)}`;
+      const btnEliminar=document.createElement('button');
+      btnEliminar.textContent='❌';
+      btnEliminar.onclick=()=>eliminarProducto(index);
+      li.appendChild(btnEliminar);
+      listaCarrito.appendChild(li);
+      total+=item.precio*item.cantidad;
+    });
+    totalSpan.textContent=total.toFixed(2);
+    btnComprar.disabled=carrito.length===0;
+  }
+  btnComprar.addEventListener('click',()=>{
+    if(carrito.length===0) return;
+    let mensaje="¡Hola! Me interesa realizar una compra en *VARIEDADES FALBAS*:%0A%0A";
+    carrito.forEach(item=>{
+      mensaje+=`• ${item.nombre} x${item.cantidad} = $${(item.precio*item.cantidad).toFixed(2)}%0A`;
+    });
+    mensaje+=`%0A🧾 Total a pagar: *$${totalSpan.textContent}*%0A%0A¿Está disponible para envío o retiro?`;
+    const numero='593982183115';
+    window.open(`https://wa.me/${numero}?text=${mensaje}`,'_blank');
+  });
+
+  // Modal
+  function ampliarImagen(src){
+    document.getElementById('img-ampliada').src=src;
+    document.getElementById('modal').style.display='flex';
+  }
+  function cerrarModal(){ document.getElementById('modal').style.display='none'; }
+
+  // Idiomas
+  const selectorIdioma = document.getElementById('selector-idioma');
+  selectorIdioma.addEventListener('change', ()=>{
+    if(selectorIdioma.value==='en'){
+      document.getElementById('titulo-inicio').textContent = "Welcome to VARIEDADES FALBAS";
+      document.getElementById('descripcion-inicio').textContent = "Discover all our quality products and easily add them to your cart to buy via WhatsApp.";
+      document.getElementById('titulo-productos').textContent = "Products";
+      document.getElementById('buscador').placeholder = "Search product...";
+      document.getElementById('titulo-carrito').textContent = "Your Cart";
+      btnComprar.textContent = "Buy via WhatsApp";
+    } else {
+      document.getElementById('titulo-inicio').textContent = "Bienvenido a VARIEDADES FALBAS";
+      document.getElementById('descripcion-inicio').textContent = "Descubre todos nuestros productos de calidad y agrégalos fácilmente a tu carrito para comprar por WhatsApp.";
+      document.getElementById('titulo-productos').textContent = "Productos";
+      document.getElementById('buscador').placeholder = "Buscar producto...";
+      document.getElementById('titulo-carrito').textContent = "Tu Carrito";
+      btnComprar.textContent = "Comprar por WhatsApp";
+    }
   });
 </script>
 
-  </main>
-
-  <script>
-    const carrito = [];
-    const listaCarrito = document.getElementById('lista-carrito');
-    const totalSpan = document.getElementById('total');
-    const btnComprar = document.getElementById('btn-comprar');
-
-    function agregarAlCarrito(boton) {
-      const card = boton.closest('.producto-card');
-      const id = card.dataset.id;
-      const nombre = card.dataset.nombre;
-      const precio = parseFloat(card.dataset.precio);
-      const existente = carrito.find(p => p.id === id);
-      if (existente) {
-        existente.cantidad++;
-      } else {
-        carrito.push({ id, nombre, precio, cantidad: 1 });
-      }
-      actualizarCarrito();
-    }
-
-    function eliminarProducto(index) {
-      carrito.splice(index, 1);
-      actualizarCarrito();
-    }
-
-    function actualizarCarrito() {
-      listaCarrito.innerHTML = '';
-      let total = 0;
-      carrito.forEach((item, index) => {
-        const li = document.createElement('li');
-        li.textContent = `${item.nombre} x${item.cantidad} - $${(item.precio * item.cantidad).toFixed(2)}`;
-        const btnEliminar = document.createElement('button');
-        btnEliminar.textContent = '❌';
-        btnEliminar.onclick = () => eliminarProducto(index);
-        li.appendChild(btnEliminar);
-        listaCarrito.appendChild(li);
-        total += item.precio * item.cantidad;
-      });
-      totalSpan.textContent = total.toFixed(2);
-      btnComprar.disabled = carrito.length === 0;
-    }
-
-    btnComprar.addEventListener('click', () => {
-      if (carrito.length === 0) return;
-      let mensaje = "Hola, quiero comprar:%0A";
-      carrito.forEach(item => {
-        mensaje += `- ${item.nombre} x${item.cantidad}%0A`;
-      });
-      mensaje += `Total: $${totalSpan.textContent}`;
-      const numero = '593982183115'; // Cambia aquí al número correcto
-      window.open(`https://wa.me/${numero}?text=${mensaje}`, '_blank');
-    });
-
-    function ampliarImagen(src) {
-      document.getElementById('img-ampliada').src = src;
-      document.getElementById('modal').style.display = 'flex';
-    }
-
-    function cerrarModal() {
-      document.getElementById('modal').style.display = 'none';
-    }
-
-    function filtrarProductos() {
-      const input = document.getElementById('buscador');
-      const filtro = input.value.toLowerCase();
-      const productos = document.querySelectorAll('.producto-card');
-
-      productos.forEach(producto => {
-        const nombre = producto.dataset.nombre.toLowerCase();
-        if (nombre.includes(filtro)) {
-          producto.style.display = '';
-        } else {
-          producto.style.display = 'none';
-        }
-      });
-    }
-  </script>
 </body>
 </html>
-<a href="resumen.html" style="color:#ff9800; font-weight:bold;">Resumen de compra</a>
-
